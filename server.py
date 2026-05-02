@@ -10,7 +10,17 @@ sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 sock.listen(100)
 
 def client_handler(client_socket,address):
-    pass
+    while True:
+        try:
+            pack =client_socket.recv(1024)
+
+            if not pack:
+                break
+
+            msg = json.loads(pack.decode())
+        except :
+            pass
+
 
 
 while True:
